@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CommonClasses;
+
 namespace GeneticAlgorithm
 {
     public static class UnitGenerator
     {
         private static Random random;
-        private static UnitGenerator()
-        {
-            random = new Random();
-        }
+        //private static UnitGenerator()
+        //{
+        //    random = new Random();
+        //}
         public static List<Manufacture> CreateNewUnit(List<Manufacture> manufactures)
         {
             var needsSum = manufactures.FirstOrDefault().ClientsDeliveryCost.Sum(c => c.Key.Needs);
@@ -51,6 +53,6 @@ namespace GeneticAlgorithm
             return manufactures;
         }
 
-        public static 
+        //public static 
     }
 }

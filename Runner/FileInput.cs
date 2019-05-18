@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-using CommonClasses
+using CommonClasses;
 
-namespace GeneticAlgorithm
+namespace Runner
 {
     class FileInput
     {
