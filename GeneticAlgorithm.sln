@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonClasses", "CommonClas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runner", "Runner\Runner.csproj", "{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensiveAlgorithm", "ExpensiveAlgorithm\ExpensiveAlgorithm.csproj", "{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

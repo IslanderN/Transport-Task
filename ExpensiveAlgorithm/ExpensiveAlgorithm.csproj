@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Runner</RootNamespace>
-    <AssemblyName>Runner</AssemblyName>
+    <ProjectGuid>{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExpensiveAlgorithm</RootNamespace>
+    <AssemblyName>ExpensiveAlgorithm</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileInput.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Expensive.cs" />
+    <Compile Include="ExpensiveManufacturer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
       <Project>{3321189f-2843-4f38-a86b-4369d93c4574}</Project>
       <Name>CommonClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExpensiveAlgorithm\ExpensiveAlgorithm.csproj">
-      <Project>{44bb3af4-29a3-4fdf-9b07-c8971ad9ed83}</Project>
-      <Name>ExpensiveAlgorithm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GeneticAlgorithm\GeneticAlgorithm.csproj">
-      <Project>{b4fd665e-8741-4e81-bbdd-8566feff33c6}</Project>
-      <Name>GeneticAlgorithm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
