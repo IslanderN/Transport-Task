@@ -13,7 +13,7 @@ namespace Runner
     {
         static void Main(string[] args)
         {
-            
+            Genetic();
 
             Console.ReadKey();
         }
@@ -26,7 +26,9 @@ namespace Runner
 
             f.ReadFromFile(out clients, out manufactures);
 
-            manufactures = ProbabilityComputerer.Compute(manufactures);
+            manufactures = ProbabilityComputerer.Compute2(manufactures);
+
+            List<Unit> populationOfUnit = UnitGenerator.GenerateMany(manufactures, 10);
         }
     }
 }

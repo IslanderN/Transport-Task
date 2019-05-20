@@ -14,7 +14,6 @@ namespace CommonClasses
         public Dictionary<Client, int> ClientsDeliveryCost { get; set; }
 
         public double ProbabilityOfOrganisate { get; set; }
-        public int IsOrganisated { get; set; }
 
         public Manufacture()
         {
