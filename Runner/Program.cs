@@ -14,7 +14,8 @@ namespace Runner
     {
         static void Main(string[] args)
         {
-            Expensive();
+            //Expensive();
+            Genetic();
 
             Console.ReadKey();
         }
@@ -57,11 +58,12 @@ namespace Runner
 
         static void Genetic()
         {
-            FileInput f = new FileInput("test.txt");
+           // FileInput f = new FileInput("test.txt");
             List<Client> clients;
             List<Manufacture> manufactures;
 
-            f.ReadFromFile(out clients, out manufactures);
+            // f.ReadFromFile(out clients, out manufactures);
+            GenerateInput.Generate(out clients, out manufactures);
 
             manufactures = ProbabilityComputerer.Compute(manufactures);
         }

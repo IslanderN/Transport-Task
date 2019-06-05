@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Runner</RootNamespace>
-    <AssemblyName>Runner</AssemblyName>
+    <ProjectGuid>{4AA42351-6633-43F1-846D-9566FB278D01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FrequencySearch</RootNamespace>
+    <AssemblyName>FrequencySearch</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileInput.cs" />
+    <Compile Include="FrequancySearch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -54,18 +57,6 @@
     <ProjectReference Include="..\CommonClasses\CommonClasses.csproj">
       <Project>{3321189f-2843-4f38-a86b-4369d93c4574}</Project>
       <Name>CommonClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExpensiveAlgorithm\ExpensiveAlgorithm.csproj">
-      <Project>{44bb3af4-29a3-4fdf-9b07-c8971ad9ed83}</Project>
-      <Name>ExpensiveAlgorithm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FrequencySearch\FrequencySearch.csproj">
-      <Project>{4aa42351-6633-43f1-846d-9566fb278d01}</Project>
-      <Name>FrequencySearch</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GeneticAlgorithm\GeneticAlgorithm.csproj">
-      <Project>{b4fd665e-8741-4e81-bbdd-8566feff33c6}</Project>
-      <Name>GeneticAlgorithm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
