@@ -30,7 +30,7 @@ namespace CommonClasses
 
         private int CalculateAdaptability()
         {
-            return 1;
+            return 0;
         }
 
         public bool IsUnitSurvive()

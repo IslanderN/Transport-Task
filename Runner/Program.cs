@@ -38,10 +38,11 @@ namespace Runner
             clientNeeds = clients.Sum(a => a.Needs);
 
             int i = 0;
-            while (manufacturerNeeds <= clientNeeds)
+            while (manufacturerNeeds <= clientNeeds && i<expensiveManufacturers.Count())
             {
-                manufacturerNeeds += expensiveManufacturers[0].ProductionCapacity;
-                expensiveManufacturers[0].IsOrganisated = 1;
+                Console.WriteLine(manufacturerNeeds);
+                manufacturerNeeds += expensiveManufacturers[i].ProductionCapacity;
+                expensiveManufacturers[i].IsOrganisated = 1;
                 i++;
             }
 
@@ -51,6 +52,9 @@ namespace Runner
                 Console.WriteLine(el.ProductionCapacity.ToString());
                 sum += el.ProductionCapacity;
             }
+            expensiveManufacturers = expensiveManufacturers.Where(a => a.IsOrganisated == 1).ToList();
+            TransportTask transportTask = new TransportTask(expensiveManufacturers.Cast<Manufacture>().ToList());
+            int cost = transportTask.CalculateCost();
             Console.WriteLine(sum);
             Console.WriteLine(clientNeeds);
 

@@ -14,6 +14,7 @@ namespace ExpensiveAlgorithm
 
         public ExpensiveManufacturer():base(){}
         public ExpensiveManufacturer(Manufacture manufacture) : base() {
+           // this.IsOrganisated = manufacture.IsOrganisated;
             this.OrganisationCost = manufacture.OrganisationCost;
             this.ProbabilityOfOrganisate = manufacture.ProbabilityOfOrganisate;
             this.ProductionCapacity = manufacture.ProductionCapacity;
