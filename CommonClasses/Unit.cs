@@ -13,15 +13,11 @@ namespace CommonClasses
         {
             get
             {
-                if(adaptability == -1)
-                {
-                    adaptability = CalculateAdaptability();
-                }
-                return adaptability;
+                return CalculateAdaptability();
             }
         }
 
-        private int adaptability = -1;
+        //private int adaptability = -1;
 
         public Unit()
         {
@@ -30,7 +26,9 @@ namespace CommonClasses
 
         private int CalculateAdaptability()
         {
-            return 0;
+            var selectManufacture = Organisated.Where(m => m.Value != 0).Select(m => m.Key).ToList();
+            TransportTask transportTask = new TransportTask(selectManufacture);
+            return transportTask.CalculateCost();
         }
 
         public bool IsUnitSurvive()
@@ -66,7 +64,7 @@ namespace CommonClasses
 
             if (IsUnitSurvive())
             {
-                adaptability = CalculateAdaptability();
+                //adaptability = CalculateAdaptability();
                 return true;
             }
             else

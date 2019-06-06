@@ -15,7 +15,7 @@ namespace CommonClasses
             clients = new List<Client>();
             manufactures = new List<Manufacture>();
 
-            int numberOfClient = random.Next(10);
+            int numberOfClient = random.Next(3,10);
             int nummberOfManufactures = random.Next(numberOfClient, numberOfClient + 10);
 
             int sumOfNeeds = 0;

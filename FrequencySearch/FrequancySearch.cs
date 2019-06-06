@@ -13,7 +13,8 @@ namespace FrequencySearch
         public static Unit FindMostFrequance(List<Manufacture> manufactures)
         {
             List<Unit> setOfUnits = UnitGenerator.GenerateMany(manufactures, 100);
-            Unit result = setOfUnits[0];
+            Unit result = new Unit();
+            result.Organisated = new Dictionary<Manufacture, int>(setOfUnits[0].Organisated);
 
             ///set is organisated to 0
             ///clear values
@@ -36,7 +37,7 @@ namespace FrequencySearch
                 }
             }
 
-            var sortedFrequancy = frequancyOfManufactureInSet.OrderBy(m => m.Value);
+            var sortedFrequancy = frequancyOfManufactureInSet.OrderByDescending(m => m.Value);
 
             foreach(var manufacture in sortedFrequancy)
             {

@@ -8,12 +8,13 @@ namespace CommonClasses
 {
     public class TransportTask
     {
-        public List<Route> routes = new List<Route>();
-        public List<Manufacture> manufactures;
-        public List<int> a = new List<int>();
-        public List<int> b = new List<int>();
-        public int[,] matrix;
-        public int n, m; //count clients count manufacturer
+        private List<Route> routes = new List<Route>();
+        private List<Manufacture> manufactures;
+        private List<int> a = new List<int>();
+        private List<int> b = new List<int>();
+        private int[,] matrix;
+        private int n, m; //count clients count manufacturer
+
         public TransportTask(List<Manufacture> manufactures)
         {
             this.manufactures = manufactures;
@@ -61,12 +62,12 @@ namespace CommonClasses
 
             
            
-            Console.WriteLine(matrix[4, 3]);
+            //Console.WriteLine(matrix[4, 3]);
 
 
-            return cost;
+            return cost = CalculteCostForFindingRoutes();
         }
-        public void FindMin()
+        private void FindMin()
         {
             int indexManufacturer = 0;
             int indexClient = 0;
@@ -107,7 +108,7 @@ namespace CommonClasses
 
             routes.Add(route);
         }
-        public void DeleteRowOrColl(int row = -1,int coll = -1)
+        private void DeleteRowOrColl(int row = -1,int coll = -1)
         {
             if(row != -1)
             {
@@ -123,6 +124,23 @@ namespace CommonClasses
                     matrix[i, coll] = int.MaxValue;
                 }
             }
+        }
+        private int CalculteCostForFindingRoutes()
+        {
+            int cost = 0;
+            foreach(var route in routes)
+            {
+                cost += route.Manufacture.OrganisationCost;
+
+
+                if (route.Client != null)
+                {
+                    cost += route.Value * route.Manufacture.ClientsDeliveryCost[route.Client];
+                }
+            }
+
+
+            return cost;
         }
     }
 }

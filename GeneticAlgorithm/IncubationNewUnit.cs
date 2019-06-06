@@ -24,16 +24,17 @@ namespace GeneticAlgorithm
 
         private static List<Unit> IncubateNewUnits(List<Unit> parents)
         {
+            List<Unit> children = new List<Unit>();
             foreach (var unit in parents)
             {
                 Unit secondParent = parents[random.Next(parents.Count)];
                 Unit child = Crossing(unit, secondParent);
                 if (child != null)
                 {
-                    parents.Add(child);
+                    children.Add(child);
                 }
             }
-            return parents;
+            return parents.Concat(children).ToList();
         }
 
         private static Unit Crossing(Unit firstParent, Unit secondParent)
