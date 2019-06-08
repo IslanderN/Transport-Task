@@ -31,6 +31,9 @@ namespace Runner
                 var result2 = Genetic(manufactures);
                 Console.WriteLine("Genertic: " + result2.Adaptability);
 
+                var result3 = Expensive(manufactures, clients);
+                Console.WriteLine("Greedy: " + result3);
+
                 Console.WriteLine("------------------------");
                 Thread.Sleep(3000);
             }
@@ -38,44 +41,10 @@ namespace Runner
             Console.ReadKey();
         }
 
-        static void Expensive(List<Manufacture> manufactures, List<Client> clients)
+        static int Expensive(List<Manufacture> manufactures, List<Client> clients)
         {
-            //FileInput f = new FileInput("input.txt");
-            //List<Client> clients;
-            //List<Manufacture> manufactures;
-            List<ExpensiveManufacturer> expensiveManufacturers;
-            int clientNeeds;
-            int manufacturerNeeds = 0;
-
-            //f.ReadFromFile(out clients, out manufactures);
-
             Expensive algorithm = new Expensive();
-            
-            expensiveManufacturers = algorithm.SetManufacturePriority(manufactures);
-
-            clientNeeds = clients.Sum(a => a.Needs);
-
-            int i = 0;
-            while (manufacturerNeeds <= clientNeeds && i<expensiveManufacturers.Count())
-            {
-                //Console.WriteLine(manufacturerNeeds);
-                manufacturerNeeds += expensiveManufacturers[i].ProductionCapacity;
-                expensiveManufacturers[i].IsOrganisated = 1;
-                i++;
-            }
-
-            int sum = 0;
-            foreach(var el in expensiveManufacturers)
-            {
-                //Console.WriteLine(el.ProductionCapacity.ToString());
-                sum += el.ProductionCapacity;
-            }
-            expensiveManufacturers = expensiveManufacturers.Where(a => a.IsOrganisated == 1).ToList();
-            TransportTask transportTask = new TransportTask(expensiveManufacturers.Cast<Manufacture>().ToList());
-            int cost = transportTask.CalculateCost();
-            Console.WriteLine("Жадный: " + cost);
-            //Console.WriteLine(sum);
-            //Console.WriteLine(clientNeeds);
+            return algorithm.Solver(manufactures, clients);
 
         }
 
