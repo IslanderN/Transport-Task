@@ -96,6 +96,10 @@
       <Project>{b4fd665e-8741-4e81-bbdd-8566feff33c6}</Project>
       <Name>GeneticAlgorithm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Runner\Runner.csproj">
+      <Project>{1f27bff9-1c78-47be-80f1-09632c43fdfd}</Project>
+      <Name>Runner</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

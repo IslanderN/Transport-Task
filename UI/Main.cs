@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonClasses;
+using ExpensiveAlgorithm;
 
 namespace UI
 {
@@ -87,30 +88,31 @@ namespace UI
                 int powerNeeds;
                 for (int i = 0; i < realCountClientInMatrix; i++)
                 {
-                    powerNeeds = random.Next(10, 30);
+                    powerNeeds = random.Next(10, 20);
                     clienstNeeds += powerNeeds;
                     this.dataGridView[realCountManufacurerInMatrix, i].Value = powerNeeds;
                 }
+                int powerManufacurer = 0;
                 for (int i = 0; i < realCountManufacurerInMatrix; i++)
                 {
                     for(int j = 0; j < realCountClientInMatrix; j++)
                     {
                         this.dataGridView[i, j].Value = random.Next(10, 30);
                     }
+
                     if (i + 1 == realCountManufacurerInMatrix)
-                    {
-                        powerNeeds = clienstNeeds;
-                        clienstNeeds = 0;
-                    }
-                    else
                     {
                         do
                         {
+                
+                            powerNeeds = random.Next(10, 40);
+                        } while (powerNeeds+powerManufacurer < clienstNeeds);
+                    }
+                    else
+                    {
+                        powerNeeds = random.Next(10, 40);
 
-                           powerNeeds = random.Next(10, 30);
-                        } while (powerNeeds > clienstNeeds);
-
-                        clienstNeeds -= powerNeeds;
+                        powerManufacurer += powerNeeds;
 
 
 
@@ -188,23 +190,12 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] t = new string[4];
-            //for (int i = 0; i < 4; i++)
-            //    t[i] = ((TextBox)tableLayoutPanel1.Controls["TxtBox" + (i + 1).ToString()]).Text;
-
-            //List<List<int>
-
-            for(int i=0;i< realCountManufacurerInMatrix; i++)
-            {
-                for(int j = 0; j < realCountClientInMatrix; j++)
-                {
-
-                }
-            }
-            //this.groupBox.Controls.te
             if (this.Validation())
             {
                 this.PrepareData();
+                
+                Expensive algorithm = new Expensive();
+               result.Text =  algorithm.Solver(manufactures, clients).ToString();
             }
             
         }
@@ -213,29 +204,36 @@ namespace UI
         private bool Validation()
         {
             bool error = false;
+            int number;
 
-            for(int i = 0; i < realCountManufacurerInMatrix; i++)
+            for (int i = 0; i < realCountManufacurerInMatrix; i++)
             {
-                if(((TextBox)groupBox.Controls["textBox" + i.ToString()]) == null)
+                if (string.IsNullOrEmpty(((TextBox)groupBox.Controls["TextBox" + i.ToString()]).Text) ||
+                    !int.TryParse(((TextBox)groupBox.Controls["TextBox" + i.ToString()]).Text.ToString(), out number))
                 {
                     error = true;
                 }
-                if (this.dataGridView[i, realCountClientInMatrix].Value == null)
+
+                if (this.dataGridView[i, realCountClientInMatrix].Value == null ||
+                    !int.TryParse(this.dataGridView[i,realCountClientInMatrix].Value.ToString(),out number))
                 {
                     error = true;
                 }
+                
                 for(int j = 0; j < realCountClientInMatrix; j++)
                 {
-                    if(this.dataGridView[i,j].Value == null)
+                    if(this.dataGridView[i,j].Value == null || 
+                        !int.TryParse(this.dataGridView[i, j].Value.ToString(),out number))
                     {
                         error = true;
                     }
                 }
             }
 
-            for(int i = 0; i < realCountClientInMatrix; i++)
+            for (int i = 0; i < realCountClientInMatrix; i++)
             {
-                if (this.dataGridView[realCountManufacurerInMatrix, i].Value == null)
+                if (this.dataGridView[realCountManufacurerInMatrix, i].Value == null
+                    || !int.TryParse(this.dataGridView[realCountManufacurerInMatrix, i].Value.ToString(), out number))
                 {
                     error = true;
                 }
@@ -272,7 +270,7 @@ namespace UI
             {
                 var manufacture = new Manufacture
                 {
-                    OrganisationCost = int.Parse(((TextBox)groupBox.Controls["textBox" + i.ToString()]).Text),
+                    OrganisationCost = int.Parse(((TextBox)groupBox.Controls["TextBox" + i.ToString()]).Text),
                     ProductionCapacity = int.Parse(this.dataGridView[i, numberOfClient].Value.ToString())
                 };
                 sumOfProductionCapacity += manufacture.ProductionCapacity;
@@ -285,7 +283,7 @@ namespace UI
                 var manufacture = manufactures[i];
                 for (int j = 0; j < clients.Count; j++)
                 {
-                    int cost = int.Parse(dataGridView[j,i].Value.ToString());
+                    int cost = int.Parse(dataGridView[i,j].Value.ToString());
                     var client = clients[j];
                     client.ManufactureDeliveryCost.Add(manufacture, cost);
                     manufacture.ClientsDeliveryCost.Add(client, cost);
