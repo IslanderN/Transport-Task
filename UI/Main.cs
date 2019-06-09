@@ -93,24 +93,32 @@ namespace UI
                     this.dataGridView[realCountManufacurerInMatrix, i].Value = powerNeeds;
                 }
                 int powerManufacurer = 0;
+                int averageManufacturePower = clienstNeeds / realCountManufacurerInMatrix;
+
                 for (int i = 0; i < realCountManufacurerInMatrix; i++)
                 {
                     for(int j = 0; j < realCountClientInMatrix; j++)
                     {
                         this.dataGridView[i, j].Value = random.Next(10, 30);
+                        //this.dataGridView[i, j].Value = random.Next(averageManufacturePower - averageManufacturePower/2, averageManufacturePower + averageManufacturePower);
                     }
 
                     if (i + 1 == realCountManufacurerInMatrix)
                     {
-                        do
-                        {
-                
-                            powerNeeds = random.Next(10, 40);
-                        } while (powerNeeds+powerManufacurer < clienstNeeds);
+                        //do
+                        //{
+
+                        //powerNeeds = random.Next(10, 40);
+                        var randomValue = random.Next((int)(0.5 * averageManufacturePower), averageManufacturePower);
+                        var diffValue = clienstNeeds - powerManufacurer;
+                        if (diffValue < 0) diffValue *= -1;
+                        powerNeeds = diffValue + randomValue;
+                        //} while (powerNeeds+powerManufacurer < clienstNeeds);
                     }
                     else
                     {
-                        powerNeeds = random.Next(10, 40);
+                        //powerNeeds = random.Next(10, 40);
+                        powerNeeds = random.Next((int)(0.75 * averageManufacturePower), 2 * averageManufacturePower);
 
                         powerManufacurer += powerNeeds;
 
