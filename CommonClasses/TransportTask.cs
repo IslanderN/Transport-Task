@@ -130,13 +130,17 @@ namespace CommonClasses
             int cost = 0;
             foreach(var route in routes)
             {
-                cost += route.Manufacture.OrganisationCost;
+                
 
 
                 if (route.Client != null)
                 {
                     cost += route.Value * route.Manufacture.ClientsDeliveryCost[route.Client];
                 }
+            }
+            foreach(var manufacturer in manufactures)
+            {
+                cost += manufacturer.OrganisationCost;
             }
 
 
