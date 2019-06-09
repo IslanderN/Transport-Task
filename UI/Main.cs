@@ -9,14 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonClasses;
 using ExpensiveAlgorithm;
+using NLog;
 
 namespace UI
 {
     public partial class Main : Form
     {
+        private Logger logger;
         public Main()
         {
-            
+            this.logger = LogManager.GetCurrentClassLogger();
             InitializeComponent();
             this.CustomInitializeComponet();
 
@@ -196,16 +198,38 @@ namespace UI
             this.GenerateDataGridView(countManufacturers: countManufacturer);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void GreedyAlgorithm_Click(object sender, EventArgs e)
         {
             if (this.Validation())
             {
                 this.PrepareData();
-                
+
                 Expensive algorithm = new Expensive();
-               result.Text =  algorithm.Solver(manufactures, clients).ToString();
+                GreedyResult.Text = algorithm.Solver(manufactures, clients).ToString();
             }
-            
+
+        }
+        private void GeneticAlgorithm_Click(object sender, EventArgs e)
+        {
+            if (this.Validation())
+            {
+                this.PrepareData();
+                //this.logger.Info("Test");
+                var result = GeneticAlgorithm.Executing.Solve(this.manufactures);
+                GeneticResult.Text = result.Adaptability.ToString();
+            }
+
+        }
+        private void FrequancyAlgorithm_Click(object sender, EventArgs e)
+        {
+            if (this.Validation())
+            {
+                this.PrepareData();
+                manufactures = GeneticAlgorithm.ProbabilityComputerer.Compute(manufactures);
+                var result = FrequencySearch.FrequancySearch.FindMostFrequance(this.manufactures);
+                FrequancyResult.Text = result.Adaptability.ToString();
+            }
+
         }
         private List<Client> clients;
         private List<Manufacture> manufactures;
