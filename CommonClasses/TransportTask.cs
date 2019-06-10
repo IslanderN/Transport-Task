@@ -130,8 +130,6 @@ namespace CommonClasses
             int cost = 0;
             foreach(var route in routes)
             {
-                
-
 
                 if (route.Client != null)
                 {
@@ -142,8 +140,6 @@ namespace CommonClasses
             {
                 cost += manufacturer.OrganisationCost;
             }
-
-
             return cost;
         }
     }
