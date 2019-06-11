@@ -42,6 +42,9 @@ namespace UI
         private void GenerateDataGridView(int countManufacturers = CountElementInMatrix, int countClients = CountElementInMatrix)
         {
             this.dataGridView.Columns.Clear();
+            this.GreedyResult.Text = "";
+            this.GeneticResult.Text = "";
+            this.FrequancyResult.Text = "";
 
             if (this.realCountManufacurerInMatrix != countManufacturers)
             {
@@ -204,6 +207,10 @@ namespace UI
                 Expensive algorithm = new Expensive();
                 GreedyResult.Text = algorithm.Solver(manufactures, clients).ToString();
             }
+            else
+            {
+                MessageBox.Show("Перевірте введені дані");
+            }
 
         }
         private void GeneticAlgorithm_Click(object sender, EventArgs e)
@@ -213,6 +220,10 @@ namespace UI
                 this.PrepareData(); 
                 var result = GeneticAlgorithm.Executing.Solve(this.manufactures);
                 GeneticResult.Text = result.Adaptability.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Перевірте введені дані");
             }
 
         }
@@ -224,6 +235,10 @@ namespace UI
                 manufactures = GeneticAlgorithm.ProbabilityComputerer.Compute(manufactures);
                 var result = FrequencySearch.FrequancySearch.FindMostFrequance(this.manufactures);
                 FrequancyResult.Text = result.Adaptability.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Перевірте введені дані");
             }
 
         }
@@ -237,13 +252,15 @@ namespace UI
             for (int i = 0; i < realCountManufacurerInMatrix; i++)
             {
                 if (string.IsNullOrEmpty(((TextBox)groupBox.Controls["TextBox" + i.ToString()]).Text) ||
-                    !int.TryParse(((TextBox)groupBox.Controls["TextBox" + i.ToString()]).Text.ToString(), out number))
+                    !int.TryParse(((TextBox)groupBox.Controls["TextBox" + i.ToString()]).Text.ToString(), out number)
+                    || number < 0)
                 {
                     error = true;
                 }
 
                 if (this.dataGridView[i, realCountClientInMatrix].Value == null ||
-                    !int.TryParse(this.dataGridView[i,realCountClientInMatrix].Value.ToString(),out number))
+                    !int.TryParse(this.dataGridView[i,realCountClientInMatrix].Value.ToString(),out number)
+                    || number < 0)
                 {
                     error = true;
                 }
@@ -251,7 +268,8 @@ namespace UI
                 for(int j = 0; j < realCountClientInMatrix; j++)
                 {
                     if(this.dataGridView[i,j].Value == null || 
-                        !int.TryParse(this.dataGridView[i, j].Value.ToString(),out number))
+                        !int.TryParse(this.dataGridView[i, j].Value.ToString(),out number)
+                        || number < 0)
                     {
                         error = true;
                     }
@@ -261,7 +279,26 @@ namespace UI
             for (int i = 0; i < realCountClientInMatrix; i++)
             {
                 if (this.dataGridView[realCountManufacurerInMatrix, i].Value == null
-                    || !int.TryParse(this.dataGridView[realCountManufacurerInMatrix, i].Value.ToString(), out number))
+                    || !int.TryParse(this.dataGridView[realCountManufacurerInMatrix, i].Value.ToString(), out number)
+                    || number < 0)
+                {
+                    error = true;
+                }
+            }
+            if (!error)
+            {
+                int clienNeeds = 0;
+                int manufacturePower = 0;
+                for(int i = 0; i < realCountClientInMatrix; i++)
+                {
+                    clienNeeds += int.Parse(this.dataGridView[realCountManufacurerInMatrix,i].Value.ToString());
+                }
+
+                for (int i = 0; i < realCountManufacurerInMatrix; i++)
+                {
+                    manufacturePower += int.Parse(this.dataGridView[i,realCountManufacurerInMatrix].Value.ToString());
+                }
+                if(clienNeeds > manufacturePower)
                 {
                     error = true;
                 }
