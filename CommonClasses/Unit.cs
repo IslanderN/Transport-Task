@@ -53,7 +53,7 @@ namespace CommonClasses
             }
             else
             {
-                return true;
+                return false;
             }
         }
         private bool Mutate(Random random)

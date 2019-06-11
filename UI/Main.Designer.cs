@@ -44,6 +44,7 @@
             this.GreedyResult = new System.Windows.Forms.Label();
             this.GeneticResult = new System.Windows.Forms.Label();
             this.FrequancyResult = new System.Windows.Forms.Label();
+            this.GraphGenerateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
@@ -237,12 +238,23 @@
             this.FrequancyResult.Size = new System.Drawing.Size(2, 26);
             this.FrequancyResult.TabIndex = 9;
             // 
+            // GraphGenerateButton
+            // 
+            this.GraphGenerateButton.Location = new System.Drawing.Point(638, 283);
+            this.GraphGenerateButton.Name = "GraphGenerateButton";
+            this.GraphGenerateButton.Size = new System.Drawing.Size(75, 23);
+            this.GraphGenerateButton.TabIndex = 10;
+            this.GraphGenerateButton.Text = "Graph";
+            this.GraphGenerateButton.UseVisualStyleBackColor = true;
+            this.GraphGenerateButton.Click += new System.EventHandler(this.GraphGenerateButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(831, 483);
+            this.Controls.Add(this.GraphGenerateButton);
             this.Controls.Add(this.FrequancyResult);
             this.Controls.Add(this.GeneticResult);
             this.Controls.Add(this.GreedyResult);
@@ -286,6 +298,7 @@
         private System.Windows.Forms.Label GreedyResult;
         private System.Windows.Forms.Label GeneticResult;
         private System.Windows.Forms.Label FrequancyResult;
+        private System.Windows.Forms.Button GraphGenerateButton;
     }
 }
 

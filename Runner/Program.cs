@@ -50,10 +50,11 @@ namespace Runner
 
         static Unit Genetic(List<Manufacture> manufactures)
         {
-           // FileInput f = new FileInput("test.txt");
-            
+            // FileInput f = new FileInput("test.txt");
 
-            return Executing.Solve(manufactures);
+
+            //return Executing.Solve(manufactures);
+            return new Unit();
         }
 
         static Unit Frequancy(List<Manufacture> manufactures)

@@ -9,16 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonClasses;
 using ExpensiveAlgorithm;
-using NLog;
 
 namespace UI
 {
     public partial class Main : Form
     {
-        private Logger logger;
         public Main()
         {
-            this.logger = LogManager.GetCurrentClassLogger();
             InitializeComponent();
             this.CustomInitializeComponet();
 
@@ -213,8 +210,7 @@ namespace UI
         {
             if (this.Validation())
             {
-                this.PrepareData();
-                //this.logger.Info("Test");
+                this.PrepareData(); 
                 var result = GeneticAlgorithm.Executing.Solve(this.manufactures);
                 GeneticResult.Text = result.Adaptability.ToString();
             }
@@ -329,6 +325,12 @@ namespace UI
             this.GenerateManufacturerCosts();
             this.GenerateDataGridView();
             IsRandom = false;
+        }
+
+        private void GraphGenerateButton_Click(object sender, EventArgs e)
+        {
+            Form graph = new Graphs();
+            graph.Show();
         }
     }
 }

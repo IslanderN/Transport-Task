@@ -12,10 +12,15 @@ namespace CommonClasses
 
         public static void Generate(out List<Client> clients, out List<Manufacture> manufactures)
         {
+            Generate(out clients, out manufactures, random.Next(3, 10));
+        }
+
+        public static void Generate(out List<Client> clients, out List<Manufacture> manufactures, int numberOfClient)
+        {
             clients = new List<Client>();
             manufactures = new List<Manufacture>();
+            
 
-            int numberOfClient = random.Next(3,10);
             int nummberOfManufactures = random.Next(numberOfClient, numberOfClient + 10);
 
             int sumOfNeeds = 0;
