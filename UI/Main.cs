@@ -369,5 +369,11 @@ namespace UI
             Form graph = new Graphs();
             graph.Show();
         }
+
+        private void GraphForm_Click(object sender, EventArgs e)
+        {
+            Form graph = new Graphs();
+            graph.Show();
+        }
     }
 }
