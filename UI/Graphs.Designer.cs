@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -45,34 +50,40 @@
             this.DrawSizeGraph = new System.Windows.Forms.Button();
             this.LoadingBox = new System.Windows.Forms.PictureBox();
             this.DrawSizeGraphCancel = new System.Windows.Forms.Button();
+            this.TimeGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.TimeLoadingBox = new System.Windows.Forms.PictureBox();
+            this.DrawTimeGraphButton = new System.Windows.Forms.Button();
+            this.CancelDrawTimeGraphButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SizeGraph)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeGraph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeLoadingBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SizeGraph
             // 
-            chartArea2.Name = "ChartArea1";
-            this.SizeGraph.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.SizeGraph.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.SizeGraph.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.SizeGraph.Legends.Add(legend1);
             this.SizeGraph.Location = new System.Drawing.Point(197, 45);
             this.SizeGraph.Name = "SizeGraph";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Genetic";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Greedy";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Frequancy";
-            this.SizeGraph.Series.Add(series4);
-            this.SizeGraph.Series.Add(series5);
-            this.SizeGraph.Series.Add(series6);
-            this.SizeGraph.Size = new System.Drawing.Size(748, 405);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Genetic";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Greedy";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Frequancy";
+            this.SizeGraph.Series.Add(series1);
+            this.SizeGraph.Series.Add(series2);
+            this.SizeGraph.Series.Add(series3);
+            this.SizeGraph.Size = new System.Drawing.Size(692, 376);
             this.SizeGraph.TabIndex = 0;
             this.SizeGraph.Text = "chart1";
             // 
@@ -144,23 +155,23 @@
             // 
             this.DrawSizeGraph.Location = new System.Drawing.Point(15, 217);
             this.DrawSizeGraph.Name = "DrawSizeGraph";
-            this.DrawSizeGraph.Size = new System.Drawing.Size(75, 23);
+            this.DrawSizeGraph.Size = new System.Drawing.Size(147, 23);
             this.DrawSizeGraph.TabIndex = 3;
-            this.DrawSizeGraph.Text = "SizeGraph";
+            this.DrawSizeGraph.Text = "Визначити точність алгоритмів";
             this.DrawSizeGraph.UseVisualStyleBackColor = true;
             this.DrawSizeGraph.Click += new System.EventHandler(this.DrawSizeGraph_Click);
             // 
             // LoadingBox
             // 
-            this.LoadingBox.Location = new System.Drawing.Point(197, 42);
+            this.LoadingBox.Location = new System.Drawing.Point(197, 45);
             this.LoadingBox.Name = "LoadingBox";
-            this.LoadingBox.Size = new System.Drawing.Size(748, 439);
+            this.LoadingBox.Size = new System.Drawing.Size(692, 376);
             this.LoadingBox.TabIndex = 4;
             this.LoadingBox.TabStop = false;
             // 
             // DrawSizeGraphCancel
             // 
-            this.DrawSizeGraphCancel.Location = new System.Drawing.Point(96, 217);
+            this.DrawSizeGraphCancel.Location = new System.Drawing.Point(15, 257);
             this.DrawSizeGraphCancel.Name = "DrawSizeGraphCancel";
             this.DrawSizeGraphCancel.Size = new System.Drawing.Size(75, 23);
             this.DrawSizeGraphCancel.TabIndex = 3;
@@ -168,12 +179,70 @@
             this.DrawSizeGraphCancel.UseVisualStyleBackColor = true;
             this.DrawSizeGraphCancel.Click += new System.EventHandler(this.DrawSizeGraphCancel_Click);
             // 
+            // TimeGraph
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.TimeGraph.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.TimeGraph.Legends.Add(legend2);
+            this.TimeGraph.Location = new System.Drawing.Point(197, 468);
+            this.TimeGraph.Name = "TimeGraph";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Genetic";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Greedy";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "Frequancy";
+            this.TimeGraph.Series.Add(series4);
+            this.TimeGraph.Series.Add(series5);
+            this.TimeGraph.Series.Add(series6);
+            this.TimeGraph.Size = new System.Drawing.Size(692, 376);
+            this.TimeGraph.TabIndex = 0;
+            this.TimeGraph.Text = "chart1";
+            // 
+            // TimeLoadingBox
+            // 
+            this.TimeLoadingBox.Location = new System.Drawing.Point(197, 468);
+            this.TimeLoadingBox.Name = "TimeLoadingBox";
+            this.TimeLoadingBox.Size = new System.Drawing.Size(692, 376);
+            this.TimeLoadingBox.TabIndex = 4;
+            this.TimeLoadingBox.TabStop = false;
+            // 
+            // DrawTimeGraphButton
+            // 
+            this.DrawTimeGraphButton.Location = new System.Drawing.Point(15, 468);
+            this.DrawTimeGraphButton.Name = "DrawTimeGraphButton";
+            this.DrawTimeGraphButton.Size = new System.Drawing.Size(147, 23);
+            this.DrawTimeGraphButton.TabIndex = 3;
+            this.DrawTimeGraphButton.Text = "Визначити час роботи алгоритмів";
+            this.DrawTimeGraphButton.UseVisualStyleBackColor = true;
+            this.DrawTimeGraphButton.Click += new System.EventHandler(this.DrawSpeedGraph_Click);
+            // 
+            // CancelDrawTimeGraphButton
+            // 
+            this.CancelDrawTimeGraphButton.Location = new System.Drawing.Point(15, 510);
+            this.CancelDrawTimeGraphButton.Name = "CancelDrawTimeGraphButton";
+            this.CancelDrawTimeGraphButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelDrawTimeGraphButton.TabIndex = 3;
+            this.CancelDrawTimeGraphButton.Text = "Відмінити";
+            this.CancelDrawTimeGraphButton.UseVisualStyleBackColor = true;
+            this.CancelDrawTimeGraphButton.Click += new System.EventHandler(this.DrawSpeedGraphCancel_Click);
+            // 
             // Graphs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 540);
+            this.ClientSize = new System.Drawing.Size(1356, 882);
+            this.Controls.Add(this.TimeLoadingBox);
             this.Controls.Add(this.LoadingBox);
+            this.Controls.Add(this.CancelDrawTimeGraphButton);
+            this.Controls.Add(this.DrawTimeGraphButton);
             this.Controls.Add(this.DrawSizeGraphCancel);
             this.Controls.Add(this.DrawSizeGraph);
             this.Controls.Add(this.label4);
@@ -184,11 +253,18 @@
             this.Controls.Add(this.StepInputTextBox);
             this.Controls.Add(this.LastInputTextBox);
             this.Controls.Add(this.FirstInputTextBox);
+            this.Controls.Add(this.TimeGraph);
             this.Controls.Add(this.SizeGraph);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Graphs";
-            this.Text = "Graphs";
+            this.Text = "Побудова графів";
             ((System.ComponentModel.ISupportInitialize)(this.SizeGraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeGraph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeLoadingBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +284,9 @@
         private System.Windows.Forms.Button DrawSizeGraph;
         private System.Windows.Forms.PictureBox LoadingBox;
         private System.Windows.Forms.Button DrawSizeGraphCancel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart TimeGraph;
+        private System.Windows.Forms.PictureBox TimeLoadingBox;
+        private System.Windows.Forms.Button DrawTimeGraphButton;
+        private System.Windows.Forms.Button CancelDrawTimeGraphButton;
     }
 }

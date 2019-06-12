@@ -14,6 +14,7 @@ using GeneticAlgorithm;
 using FrequencySearch;
 using ExpensiveAlgorithm;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Diagnostics;
 
 namespace UI
 {
@@ -24,8 +25,8 @@ namespace UI
         private int lastSize;
 
         private int numberOfTestForOneStep;
-        private CancellationTokenSource cts;
-        private CancellationToken cancellationToken;
+        private CancellationTokenSource sizeGrpahCTS;
+        private CancellationTokenSource timeGrpahCTS;
 
 
         string geneticName = "Genetic";
@@ -39,7 +40,8 @@ namespace UI
             InitializeComponent();
 
             this.DrawSizeGraphCancel.Enabled = false;
-            this.LoadingBox.Hide();
+            this.CancelDrawTimeGraphButton.Enabled = false;
+            //this.LoadingBox.Hide();
             DrawLoading();
 
             //stepOfSizeGraph = 1;
@@ -57,8 +59,8 @@ namespace UI
         {
             if (TryValidateInput())
             {
-                cts = new CancellationTokenSource();
-                cancellationToken = cts.Token;
+                sizeGrpahCTS = new CancellationTokenSource();
+                var cancellationToken = sizeGrpahCTS.Token;
                 this.DrawSizeGraph.Enabled = false;
                 this.DrawSizeGraphCancel.Enabled = true;
 
@@ -67,11 +69,11 @@ namespace UI
                 //var task = await Task.Factory.StartNew<GenerateDataPoint>(() => GenerateGraph());
                 GenerateDataPoint dataPoint = null;
                 
-                    dataPoint = await Task.Factory.StartNew<GenerateDataPoint>(() => GenerateGraph(cancellationToken), cancellationToken);
+                    dataPoint = await Task.Factory.StartNew<GenerateDataPoint>(() => GenerateGraph(cancellationToken, PointXYGenerate), cancellationToken);
 
                     if (dataPoint != null)
                     {
-                        AfterGenerateWorkComplete(dataPoint);
+                        AfterGenerateWorkComplete(dataPoint, this.SizeGraph);
                     }
                 
                 //task.ContinueWith(async(dataPoint) => AfterGenerateWorkComplete(dataPoint.Result));
@@ -81,17 +83,54 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("Error");
+                ShowErrorMessage();
             }
         }
         private void DrawSizeGraphCancel_Click(object sender, EventArgs e)
         {
-            cts.Cancel();
+            sizeGrpahCTS?.Cancel();
 
             this.DrawSizeGraphCancel.Enabled = false;
             this.DrawSizeGraph.Enabled = true;
         }
+        private async void DrawSpeedGraph_Click(object sender, EventArgs e)
+        {
+            if (TryValidateInput())
+            {
+                timeGrpahCTS = new CancellationTokenSource();
+                var cancellationToken = timeGrpahCTS.Token;
+                this.DrawTimeGraphButton.Enabled = false;
+                this.CancelDrawTimeGraphButton.Enabled = true;
 
+                this.TimeLoadingBox.Show();
+                //var generateTask = Task<GenerateDataPoint>.Run(() => GenerateGraph());
+                //var task = await Task.Factory.StartNew<GenerateDataPoint>(() => GenerateGraph());
+                GenerateDataPoint dataPoint = null;
+
+                dataPoint = await Task.Factory.StartNew<GenerateDataPoint>(() => GenerateGraph(cancellationToken, TimeExecutionXYGenerator), cancellationToken);
+
+                if (dataPoint != null)
+                {
+                    AfterGenerateWorkComplete(dataPoint, this.TimeGraph);
+                }
+
+                //task.ContinueWith(async(dataPoint) => AfterGenerateWorkComplete(dataPoint.Result));
+                TimeLoadingBox.Hide();
+                this.CancelDrawTimeGraphButton.Enabled = false;
+                this.DrawTimeGraphButton.Enabled = true;
+            }
+            else
+            {
+                ShowErrorMessage();
+            }
+        }
+        private void DrawSpeedGraphCancel_Click(object sender, EventArgs e)
+        {
+            timeGrpahCTS?.Cancel();
+
+            this.CancelDrawTimeGraphButton.Enabled = false;
+            this.DrawTimeGraphButton.Enabled = true;
+        }
         private void DrawLoading()
         {
             var graphics = LoadingBox.CreateGraphics();
@@ -143,23 +182,23 @@ namespace UI
             return !incorrectInput;
         }
 
-        private void AfterGenerateWorkComplete(GenerateDataPoint dataPoint)
+        private void AfterGenerateWorkComplete(GenerateDataPoint dataPoint, Chart chart)
         {
 
-            this.SizeGraph.Series[geneticName].Points.Clear();
-            this.SizeGraph.Series[greedyName].Points.Clear();
-            this.SizeGraph.Series[frequancyName].Points.Clear();
+            chart.Series[geneticName].Points.Clear();
+            chart.Series[greedyName].Points.Clear();
+            chart.Series[frequancyName].Points.Clear();
             foreach (var p in dataPoint.GeneticData)
             {
-                this.SizeGraph.Series[geneticName].Points.AddXY(p.X, p.Y);
+                chart.Series[geneticName].Points.AddXY(p.X, p.Y);
             }
             foreach (var p in dataPoint.GreedyData)
             {
-                this.SizeGraph.Series[greedyName].Points.AddXY(p.X, p.Y);
+                chart.Series[greedyName].Points.AddXY(p.X, p.Y);
             }
             foreach (var p in dataPoint.FrequancyData)
             {
-                this.SizeGraph.Series[frequancyName].Points.AddXY(p.X, p.Y);
+                chart.Series[frequancyName].Points.AddXY(p.X, p.Y);
             }
             //this.SizeGraph.Series[greedyName].Points.AddXY(clientCount, greedyResult.Average());
             //this.SizeGraph.Series[frequancyName].Points.AddXY(clientCount, frequancyResult.Average());
@@ -167,7 +206,7 @@ namespace UI
         }
 
         #region GenereteSizeGraph
-        private GenerateDataPoint GenerateGraph(CancellationToken token)
+        private GenerateDataPoint GenerateGraph(CancellationToken token, Action<GenerateDataPoint,int> method)
         {
             GenerateDataPoint dataPoint = new GenerateDataPoint();
             for (int i = firstSize; i <= lastSize; i += stepOfSizeGraph)
@@ -180,7 +219,7 @@ namespace UI
                 {
                     return null;
                 }
-                PointXYGenerate(dataPoint, i);
+                method(dataPoint, i);
             }
             return dataPoint;
         }
@@ -201,6 +240,50 @@ namespace UI
                 geneticResult.Add(GenerateGenetic(manufactures));
                 greedyResult.Add(GenerateGreedy(manufactures, clients));
                 frequancyResult.Add(GenerateFrequancy(manufactures));
+            }
+            dataPoint.GeneticData.Add(new DoublePoint(clientCount, geneticResult.Average()));
+            dataPoint.GreedyData.Add(new DoublePoint(clientCount, greedyResult.Average()));
+            dataPoint.FrequancyData.Add(new DoublePoint(clientCount, frequancyResult.Average()));
+            //this.SizeGraph.Series[geneticName].Points.AddXY(clientCount, geneticResult.Average());
+            //this.SizeGraph.Series[greedyName].Points.AddXY(clientCount, greedyResult.Average());
+            //this.SizeGraph.Series[frequancyName].Points.AddXY(clientCount, frequancyResult.Average());
+
+        }
+        private void TimeExecutionXYGenerator(GenerateDataPoint dataPoint, int clientCount)
+        {
+            List<Manufacture> manufactures;
+            List<Client> clients;
+            GenerateInput.Generate(out clients, out manufactures, clientCount);
+
+            List<double> geneticResult = new List<double>();
+            List<double> greedyResult = new List<double>();
+            List<double> frequancyResult = new List<double>();
+
+            Stopwatch stopwatch = new Stopwatch();
+
+            for (int j = 0; j < numberOfTestForOneStep; j++)
+            {
+                //Genetic
+                stopwatch.Reset();
+                stopwatch.Start();
+                GenerateGenetic(manufactures);
+                stopwatch.Stop();
+                geneticResult.Add(stopwatch.Elapsed.TotalMilliseconds);
+
+                //Greedy
+                stopwatch.Reset();
+                stopwatch.Start();
+                GenerateGreedy(manufactures, clients);
+                stopwatch.Stop();
+                greedyResult.Add(stopwatch.Elapsed.TotalMilliseconds);
+
+
+                //Frequancy
+                stopwatch.Reset();
+                stopwatch.Start();
+                GenerateFrequancy(manufactures);
+                stopwatch.Stop();
+                frequancyResult.Add(stopwatch.Elapsed.TotalMilliseconds);
             }
             dataPoint.GeneticData.Add(new DoublePoint(clientCount, geneticResult.Average()));
             dataPoint.GreedyData.Add(new DoublePoint(clientCount, greedyResult.Average()));
@@ -232,7 +315,10 @@ namespace UI
         }
         #endregion
 
-
+        private void ShowErrorMessage()
+        {
+            MessageBox.Show("Не вірні вхідні дані");
+        }
 
     }
 }
