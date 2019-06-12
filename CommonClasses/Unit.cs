@@ -16,17 +16,6 @@ namespace CommonClasses
                 return CalculateAdaptability();
             }
         }
-        public List<Route> Routes {
-            get
-            {
-                if (privateRoutes == null)
-                {
-                    CalculateAdaptability();
-                }
-                return privateRoutes;
-            }
-        }
-        private List<Route> privateRoutes = new List<Route>();
 
         //private int adaptability = -1;
 
@@ -39,11 +28,7 @@ namespace CommonClasses
         {
             var selectManufacture = Organisated.Where(m => m.Value != 0).Select(m => m.Key).ToList();
             TransportTask transportTask = new TransportTask(selectManufacture);
-            var result = transportTask.CalculateCost();
-
-            privateRoutes = result.ResultRoute;
-
-            return result.Cost;
+            return transportTask.CalculateCost();
         }
 
         public bool IsUnitSurvive()

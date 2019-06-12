@@ -43,9 +43,8 @@ namespace Runner
 
         static int Expensive(List<Manufacture> manufactures, List<Client> clients)
         {
-            List<Route> routes;
             Expensive algorithm = new Expensive();
-            return algorithm.Solver(manufactures, clients, out routes);
+            return algorithm.Solver(manufactures, clients);
 
         }
 

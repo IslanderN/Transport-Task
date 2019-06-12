@@ -33,7 +33,6 @@
             this.ManufacurerLabel = new System.Windows.Forms.Label();
             this.ClientLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.графікиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -48,6 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.графікиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GraphForm = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -59,7 +59,7 @@
             this.CountManufacturerComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountManufacturerComboBox.FormattingEnabled = true;
             this.CountManufacturerComboBox.Location = new System.Drawing.Point(178, 36);
-            this.CountManufacturerComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.CountManufacturerComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CountManufacturerComboBox.Name = "CountManufacturerComboBox";
             this.CountManufacturerComboBox.Size = new System.Drawing.Size(49, 32);
             this.CountManufacturerComboBox.TabIndex = 0;
@@ -70,7 +70,7 @@
             this.CountClientComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CountClientComboBox.FormattingEnabled = true;
             this.CountClientComboBox.Location = new System.Drawing.Point(368, 36);
-            this.CountClientComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.CountClientComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CountClientComboBox.Name = "CountClientComboBox";
             this.CountClientComboBox.Size = new System.Drawing.Size(49, 32);
             this.CountClientComboBox.TabIndex = 1;
@@ -111,12 +111,6 @@
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "Графіки";
             // 
-            // графікиToolStripMenuItem
-            // 
-            this.графікиToolStripMenuItem.Name = "графікиToolStripMenuItem";
-            this.графікиToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.графікиToolStripMenuItem.Text = "Графіки";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -132,7 +126,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(605, 110);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 37);
             this.button1.TabIndex = 7;
@@ -150,7 +144,7 @@
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(4, 92);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView.RowTemplate.Height = 24;
@@ -163,9 +157,9 @@
             this.groupBox.Controls.Add(this.dataGridView);
             this.groupBox.ForeColor = System.Drawing.Color.Black;
             this.groupBox.Location = new System.Drawing.Point(9, 71);
-            this.groupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox.Size = new System.Drawing.Size(578, 400);
             this.groupBox.TabIndex = 4;
             this.groupBox.TabStop = false;
@@ -184,7 +178,7 @@
             // 
             this.GenerateRandomButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GenerateRandomButton.Location = new System.Drawing.Point(548, 27);
-            this.GenerateRandomButton.Margin = new System.Windows.Forms.Padding(2);
+            this.GenerateRandomButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.GenerateRandomButton.Name = "GenerateRandomButton";
             this.GenerateRandomButton.Size = new System.Drawing.Size(226, 32);
             this.GenerateRandomButton.TabIndex = 8;
@@ -196,7 +190,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.Location = new System.Drawing.Point(605, 151);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 37);
             this.button2.TabIndex = 7;
@@ -208,7 +202,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(605, 192);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(201, 37);
             this.button3.TabIndex = 7;
@@ -285,6 +279,12 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Частотний";
             // 
+            // графікиToolStripMenuItem
+            // 
+            this.графікиToolStripMenuItem.Name = "графікиToolStripMenuItem";
+            this.графікиToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.графікиToolStripMenuItem.Text = "Графіки";
+            // 
             // GraphForm
             // 
             this.GraphForm.Location = new System.Drawing.Point(606, 272);
@@ -320,7 +320,7 @@
             this.Controls.Add(this.CountManufacturerComboBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Main";
             this.Text = "Курсова робота";
             this.menuStrip1.ResumeLayout(false);
