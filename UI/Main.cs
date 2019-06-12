@@ -300,7 +300,7 @@ namespace UI
 
                 for (int i = 0; i < realCountManufacurerInMatrix; i++)
                 {
-                    manufacturePower += int.Parse(this.dataGridView[i,realCountManufacurerInMatrix].Value.ToString());
+                    manufacturePower += int.Parse(this.dataGridView[i,realCountClientInMatrix].Value.ToString());
                 }
                 if(clienNeeds > manufacturePower)
                 {
