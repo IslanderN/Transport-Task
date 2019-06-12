@@ -19,7 +19,7 @@ namespace CommonClasses
         {
             this.manufactures = manufactures;
         }
-        public int CalculateCost()
+        public TransportTaskResult CalculateCost()
         {
             int clientNeeds;
             int manufacturersCapacity;
@@ -65,7 +65,12 @@ namespace CommonClasses
             //Console.WriteLine(matrix[4, 3]);
 
 
-            return cost = CalculteCostForFindingRoutes();
+            cost = CalculteCostForFindingRoutes();
+            return new TransportTaskResult
+            {
+                Cost = cost,
+                ResultRoute = routes.Where(r => r.Client != null).ToList()
+            };
         }
         private void FindMin()
         {

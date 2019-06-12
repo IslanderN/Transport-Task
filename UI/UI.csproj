@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgorithmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlgorithmForm.Designer.cs">
+      <DependentUpon>AlgorithmForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenerateDataPoint.cs" />
     <Compile Include="Graphs.cs">
       <SubType>Form</SubType>
@@ -67,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlgorithmForm.resx">
+      <DependentUpon>AlgorithmForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Graphs.resx">
       <DependentUpon>Graphs.cs</DependentUpon>
     </EmbeddedResource>

@@ -46,6 +46,7 @@
     <Compile Include="Manufacture.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="TransportTask.cs" />
+    <Compile Include="TransportTaskResult.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitGenerator.cs" />

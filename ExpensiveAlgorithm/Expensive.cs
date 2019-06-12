@@ -34,7 +34,7 @@ namespace ExpensiveAlgorithm
             return resultManufacturers;
         }
 
-        public int Solver(List<Manufacture> manufactures, List<Client> clients)
+        public int Solver(List<Manufacture> manufactures, List<Client> clients, out List<Route> routes)
         {
             //FileInput f = new FileInput("input.txt");
             //List<Client> clients;
@@ -69,8 +69,10 @@ namespace ExpensiveAlgorithm
             }
             expensiveManufacturers = expensiveManufacturers.Where(a => a.IsOrganisated == 1).ToList();
             TransportTask transportTask = new TransportTask(expensiveManufacturers.Cast<Manufacture>().ToList());
-            int cost = transportTask.CalculateCost();
-            return cost;
+            var transportResult = transportTask.CalculateCost();
+
+            routes = transportResult.ResultRoute;
+            return transportResult.Cost;
         }
     }
 }

@@ -22,20 +22,21 @@ namespace UI
         }
         const int CountElementInMatrix = 3;
         private int realCountManufacurerInMatrix = CountElementInMatrix;
-        private int realCountClientInMatrix  = CountElementInMatrix;
+        private int realCountClientInMatrix = CountElementInMatrix;
         private bool IsRandom = false;
         static Random random = new Random();
         // private int indexTab = 0;
 
         public void CustomInitializeComponet()
         {
-            for (int i = CountElementInMatrix; i< 8; i++) {
+            for (int i = CountElementInMatrix; i < 8; i++)
+            {
                 CountManufacturerComboBox.Items.Add(i);
                 CountClientComboBox.Items.Add(i);
             }
             this.CountManufacturerComboBox.Text = CountManufacturerComboBox.Items[0].ToString();
             this.CountClientComboBox.Text = this.CountClientComboBox.Items[0].ToString();
-    
+
             this.GenerateManufacturerCosts();
             this.GenerateDataGridView();
         }
@@ -59,16 +60,16 @@ namespace UI
             for (int i = 0; i < countManufacturers; i++)
             {
                 var column = new DataGridViewColumn();
-                column.HeaderText = "B"+(i+1).ToString(); //текст в шапке
+                column.HeaderText = "B" + (i + 1).ToString(); //текст в шапке
                 column.Width = 50; //ширина колонки
-     
+
                 column.Name = "B" + (i + 1).ToString(); //текстовое имя колонки, его можно использовать вместо обращений по индексу
                 column.CellTemplate = new DataGridViewTextBoxCell();
                 dataGridView.Columns.Add(column);
-               
+
             }
             var columnClientNeeds = new DataGridViewColumn();
-            columnClientNeeds.HeaderText = "Ai"; //текст в шапке
+            columnClientNeeds.HeaderText = "Ki"; //текст в шапке
             columnClientNeeds.Width = 50; //ширина колонки
 
             columnClientNeeds.Name = "ClientNeeds"; //текстовое имя колонки, его можно использовать вместо обращений по индексу
@@ -79,10 +80,10 @@ namespace UI
             {
                 //for(int j)
                 dataGridView.Rows.Add();
-                dataGridView.Rows[i].HeaderCell.Value = "A"+(i+1).ToString();
+                dataGridView.Rows[i].HeaderCell.Value = "K" + (i + 1).ToString();
             }
             dataGridView.Rows.Add();
-            dataGridView.Rows[dataGridView.Rows.Count-1].HeaderCell.Value = "Bj";
+            dataGridView.Rows[dataGridView.Rows.Count - 1].HeaderCell.Value = "Bj";
 
             if (IsRandom)
             {
@@ -99,7 +100,7 @@ namespace UI
 
                 for (int i = 0; i < realCountManufacurerInMatrix; i++)
                 {
-                    for(int j = 0; j < realCountClientInMatrix; j++)
+                    for (int j = 0; j < realCountClientInMatrix; j++)
                     {
                         this.dataGridView[i, j].Value = random.Next(10, 30);
                         //this.dataGridView[i, j].Value = random.Next(averageManufacturePower - averageManufacturePower/2, averageManufacturePower + averageManufacturePower);
@@ -127,16 +128,16 @@ namespace UI
 
 
                     }
-                   // powerNeeds = random.Next(10, 30);
+                    // powerNeeds = random.Next(10, 30);
                     this.dataGridView[i, realCountClientInMatrix].Value = powerNeeds;
                     //clienstNeeds -= powerNeeds;
 
 
                 }
-                
+
             }
             this.groupBox.Controls.Add(dataGridView);
-            
+
         }
         private void GenerateManufacturerCosts(int countManufacturers = CountElementInMatrix)
         {
@@ -152,7 +153,7 @@ namespace UI
             text.Text = "Вартість розміщення виробництва";
             text.Location = new System.Drawing.Point(2, 12);
             text.Name = "LabelTextManufacturerCost";
-             text.Size = new System.Drawing.Size(544, 30);
+            text.Size = new System.Drawing.Size(544, 30);
             this.groupBox.Controls.Add(text);
             for (int i = 0; i < countManufacturers; i++)
             {
@@ -160,20 +161,20 @@ namespace UI
                 label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                 label.Location = new System.Drawing.Point(2 + i * (71 + 10), 42);
                 label.Name = "LabelManufacturerCost" + i.ToString();
-                label.Text = "B" + (i + 1).ToString()+"=";
+                label.Text = "B" + (i + 1).ToString() + "=";
                 label.Size = new System.Drawing.Size(44, 34);
-               this.groupBox.Controls.Add(label);
+                this.groupBox.Controls.Add(label);
                 TextBox textBox = new TextBox();
                 textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-                textBox.Location = new System.Drawing.Point(47+i*(71+10), 42);
+                textBox.Location = new System.Drawing.Point(47 + i * (71 + 10), 42);
                 textBox.Name = "TextBox" + i.ToString();
                 if (IsRandom)
                 {
                     textBox.Text = random.Next(10, 50).ToString();
                 }
-              //  textBox.Text = "B"+(i+1).ToString();
+                //  textBox.Text = "B"+(i+1).ToString();
                 textBox.Size = new System.Drawing.Size(40, 34);
-                textBox.TabIndex = i+1;
+                textBox.TabIndex = i + 1;
                 this.groupBox.Controls.Add(textBox);
 
             }
@@ -181,11 +182,11 @@ namespace UI
 
         private void CountClientComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
             int countClient;
             countClient = int.Parse(this.CountClientComboBox.SelectedItem.ToString());
             this.realCountClientInMatrix = countClient;
-            this.GenerateDataGridView(countClients:countClient);
+            this.GenerateDataGridView(countClients: countClient);
 
         }
 
@@ -204,8 +205,26 @@ namespace UI
             {
                 this.PrepareData();
 
+                List<Route> routes;
+
                 Expensive algorithm = new Expensive();
-                GreedyResult.Text = algorithm.Solver(manufactures, clients).ToString();
+                GreedyResult.Text = algorithm.Solver(manufactures, clients, out routes).ToString();
+
+                Form showResult = new AlgorithmForm("Жадібний", manufactures, clients,
+                    (manufactures, clients) =>
+                    {
+                        List<Route> _routes;
+
+                        Expensive greedy = new Expensive();
+                        var resultAlgorithm = greedy.Solver(manufactures, clients, out _routes);
+
+                        return new TransportTaskResult
+                        {
+                            ResultRoute = _routes,
+                            Cost = resultAlgorithm
+                        };
+                    });
+                showResult.Show();
             }
             else
             {
@@ -217,9 +236,21 @@ namespace UI
         {
             if (this.Validation())
             {
-                this.PrepareData(); 
+                this.PrepareData();
                 var result = GeneticAlgorithm.Executing.Solve(this.manufactures);
                 GeneticResult.Text = result.Adaptability.ToString();
+
+                Form showResult = new AlgorithmForm("Генетичний", manufactures, clients,
+                    (manufactures, clients) =>
+                    {
+                        var resultAlgorithm = GeneticAlgorithm.Executing.Solve(manufactures);
+                        return new TransportTaskResult
+                        {
+                            ResultRoute = resultAlgorithm.Routes,
+                            Cost = resultAlgorithm.Adaptability
+                        };
+                    });
+                showResult.Show();
             }
             else
             {
@@ -235,6 +266,20 @@ namespace UI
                 manufactures = GeneticAlgorithm.ProbabilityComputerer.Compute(manufactures);
                 var result = FrequencySearch.FrequancySearch.FindMostFrequance(this.manufactures);
                 FrequancyResult.Text = result.Adaptability.ToString();
+
+
+                Form showResult = new AlgorithmForm("Частотний", manufactures, clients,
+                    (manufactures, clients) =>
+                    {
+                        manufactures = GeneticAlgorithm.ProbabilityComputerer.Compute(manufactures);
+                        var resultAlgorithm = FrequencySearch.FrequancySearch.FindMostFrequance(manufactures);
+                        return new TransportTaskResult
+                        {
+                            ResultRoute = resultAlgorithm.Routes,
+                            Cost = resultAlgorithm.Adaptability
+                        };
+                    });
+                showResult.Show();
             }
             else
             {
@@ -259,16 +304,16 @@ namespace UI
                 }
 
                 if (this.dataGridView[i, realCountClientInMatrix].Value == null ||
-                    !int.TryParse(this.dataGridView[i,realCountClientInMatrix].Value.ToString(),out number)
+                    !int.TryParse(this.dataGridView[i, realCountClientInMatrix].Value.ToString(), out number)
                     || number < 0)
                 {
                     error = true;
                 }
-                
-                for(int j = 0; j < realCountClientInMatrix; j++)
+
+                for (int j = 0; j < realCountClientInMatrix; j++)
                 {
-                    if(this.dataGridView[i,j].Value == null || 
-                        !int.TryParse(this.dataGridView[i, j].Value.ToString(),out number)
+                    if (this.dataGridView[i, j].Value == null ||
+                        !int.TryParse(this.dataGridView[i, j].Value.ToString(), out number)
                         || number < 0)
                     {
                         error = true;
@@ -289,16 +334,16 @@ namespace UI
             {
                 int clienNeeds = 0;
                 int manufacturePower = 0;
-                for(int i = 0; i < realCountClientInMatrix; i++)
+                for (int i = 0; i < realCountClientInMatrix; i++)
                 {
-                    clienNeeds += int.Parse(this.dataGridView[realCountManufacurerInMatrix,i].Value.ToString());
+                    clienNeeds += int.Parse(this.dataGridView[realCountManufacurerInMatrix, i].Value.ToString());
                 }
 
                 for (int i = 0; i < realCountManufacurerInMatrix; i++)
                 {
-                    manufacturePower += int.Parse(this.dataGridView[i,realCountManufacurerInMatrix].Value.ToString());
+                    manufacturePower += int.Parse(this.dataGridView[i, realCountManufacurerInMatrix].Value.ToString());
                 }
-                if(clienNeeds > manufacturePower)
+                if (clienNeeds > manufacturePower)
                 {
                     error = true;
                 }
@@ -348,7 +393,7 @@ namespace UI
                 var manufacture = manufactures[i];
                 for (int j = 0; j < clients.Count; j++)
                 {
-                    int cost = int.Parse(dataGridView[i,j].Value.ToString());
+                    int cost = int.Parse(dataGridView[i, j].Value.ToString());
                     var client = clients[j];
                     client.ManufactureDeliveryCost.Add(manufacture, cost);
                     manufacture.ClientsDeliveryCost.Add(client, cost);
