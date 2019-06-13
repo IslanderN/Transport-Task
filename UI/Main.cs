@@ -273,10 +273,14 @@ namespace UI
                     {
                         manufactures = GeneticAlgorithm.ProbabilityComputerer.Compute(manufactures);
                         var resultAlgorithm = FrequencySearch.FrequancySearch.FindMostFrequance(manufactures);
+
+                        var cost = resultAlgorithm.Adaptability;
+                        var route = resultAlgorithm.Routes;
+
                         return new TransportTaskResult
                         {
-                            ResultRoute = resultAlgorithm.Routes,
-                            Cost = resultAlgorithm.Adaptability
+                            ResultRoute = route,
+                            Cost = cost
                         };
                     });
                 showResult.Show();

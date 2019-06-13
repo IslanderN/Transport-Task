@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneticAlgorithm", "Genetic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonClasses", "CommonClasses\CommonClasses.csproj", "{3321189F-2843-4F38-A86B-4369D93C4574}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runner", "Runner\Runner.csproj", "{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensiveAlgorithm", "ExpensiveAlgorithm\ExpensiveAlgorithm.csproj", "{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrequencySearch", "FrequencySearch\FrequencySearch.csproj", "{4AA42351-6633-43F1-846D-9566FB278D01}"
@@ -29,10 +27,6 @@ Global
 		{3321189F-2843-4F38-A86B-4369D93C4574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3321189F-2843-4F38-A86B-4369D93C4574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3321189F-2843-4F38-A86B-4369D93C4574}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F27BFF9-1C78-47BE-80F1-09632C43FDFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44BB3AF4-29A3-4FDF-9B07-C8971AD9ED83}.Release|Any CPU.ActiveCfg = Release|Any CPU
