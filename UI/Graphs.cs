@@ -321,5 +321,9 @@ namespace UI
             MessageBox.Show("Не вірні вхідні дані");
         }
 
+        private void Graphs_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
