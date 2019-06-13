@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.SizeGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.FirstInputTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,100 +62,110 @@
             // 
             // SizeGraph
             // 
-            chartArea1.Name = "ChartArea1";
-            this.SizeGraph.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.SizeGraph.Legends.Add(legend1);
-            this.SizeGraph.Location = new System.Drawing.Point(197, 45);
+            chartArea3.Name = "ChartArea1";
+            this.SizeGraph.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.SizeGraph.Legends.Add(legend3);
+            this.SizeGraph.Location = new System.Drawing.Point(263, 55);
+            this.SizeGraph.Margin = new System.Windows.Forms.Padding(4);
             this.SizeGraph.Name = "SizeGraph";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Genetic";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Greedy";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Frequancy";
-            this.SizeGraph.Series.Add(series1);
-            this.SizeGraph.Series.Add(series2);
-            this.SizeGraph.Series.Add(series3);
-            this.SizeGraph.Size = new System.Drawing.Size(692, 376);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Genetic";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "Greedy";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "Frequancy";
+            this.SizeGraph.Series.Add(series7);
+            this.SizeGraph.Series.Add(series8);
+            this.SizeGraph.Series.Add(series9);
+            this.SizeGraph.Size = new System.Drawing.Size(923, 463);
             this.SizeGraph.TabIndex = 0;
             this.SizeGraph.Text = "chart1";
             // 
             // FirstInputTextBox
             // 
-            this.FirstInputTextBox.Location = new System.Drawing.Point(62, 42);
+            this.FirstInputTextBox.Location = new System.Drawing.Point(83, 52);
+            this.FirstInputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.FirstInputTextBox.Name = "FirstInputTextBox";
-            this.FirstInputTextBox.Size = new System.Drawing.Size(100, 20);
+            this.FirstInputTextBox.Size = new System.Drawing.Size(132, 22);
             this.FirstInputTextBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 45);
+            this.label1.Location = new System.Drawing.Point(16, 55);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Початок";
             // 
             // LastInputTextBox
             // 
-            this.LastInputTextBox.Location = new System.Drawing.Point(62, 68);
+            this.LastInputTextBox.Location = new System.Drawing.Point(83, 84);
+            this.LastInputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.LastInputTextBox.Name = "LastInputTextBox";
-            this.LastInputTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LastInputTextBox.Size = new System.Drawing.Size(132, 22);
             this.LastInputTextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 71);
+            this.label2.Location = new System.Drawing.Point(16, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.Size = new System.Drawing.Size(51, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Кінець";
             // 
             // StepInputTextBox
             // 
-            this.StepInputTextBox.Location = new System.Drawing.Point(62, 103);
+            this.StepInputTextBox.Location = new System.Drawing.Point(83, 127);
+            this.StepInputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.StepInputTextBox.Name = "StepInputTextBox";
-            this.StepInputTextBox.Size = new System.Drawing.Size(100, 20);
+            this.StepInputTextBox.Size = new System.Drawing.Size(132, 22);
             this.StepInputTextBox.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 106);
+            this.label3.Location = new System.Drawing.Point(16, 130);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Крок";
             // 
             // NumberOfTestInputTextBox
             // 
-            this.NumberOfTestInputTextBox.Location = new System.Drawing.Point(62, 142);
+            this.NumberOfTestInputTextBox.Location = new System.Drawing.Point(83, 175);
+            this.NumberOfTestInputTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.NumberOfTestInputTextBox.Name = "NumberOfTestInputTextBox";
-            this.NumberOfTestInputTextBox.Size = new System.Drawing.Size(100, 20);
+            this.NumberOfTestInputTextBox.Size = new System.Drawing.Size(132, 22);
             this.NumberOfTestInputTextBox.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 145);
+            this.label4.Location = new System.Drawing.Point(16, 178);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(64, 17);
             this.label4.TabIndex = 2;
             this.label4.Text = "Повтори";
             // 
             // DrawSizeGraph
             // 
-            this.DrawSizeGraph.Location = new System.Drawing.Point(15, 217);
+            this.DrawSizeGraph.Location = new System.Drawing.Point(20, 267);
+            this.DrawSizeGraph.Margin = new System.Windows.Forms.Padding(4);
             this.DrawSizeGraph.Name = "DrawSizeGraph";
-            this.DrawSizeGraph.Size = new System.Drawing.Size(147, 23);
+            this.DrawSizeGraph.Size = new System.Drawing.Size(196, 28);
             this.DrawSizeGraph.TabIndex = 3;
             this.DrawSizeGraph.Text = "Визначити точність алгоритмів";
             this.DrawSizeGraph.UseVisualStyleBackColor = true;
@@ -163,17 +173,19 @@
             // 
             // LoadingBox
             // 
-            this.LoadingBox.Location = new System.Drawing.Point(197, 45);
+            this.LoadingBox.Location = new System.Drawing.Point(263, 55);
+            this.LoadingBox.Margin = new System.Windows.Forms.Padding(4);
             this.LoadingBox.Name = "LoadingBox";
-            this.LoadingBox.Size = new System.Drawing.Size(692, 376);
+            this.LoadingBox.Size = new System.Drawing.Size(923, 463);
             this.LoadingBox.TabIndex = 4;
             this.LoadingBox.TabStop = false;
             // 
             // DrawSizeGraphCancel
             // 
-            this.DrawSizeGraphCancel.Location = new System.Drawing.Point(15, 257);
+            this.DrawSizeGraphCancel.Location = new System.Drawing.Point(20, 316);
+            this.DrawSizeGraphCancel.Margin = new System.Windows.Forms.Padding(4);
             this.DrawSizeGraphCancel.Name = "DrawSizeGraphCancel";
-            this.DrawSizeGraphCancel.Size = new System.Drawing.Size(75, 23);
+            this.DrawSizeGraphCancel.Size = new System.Drawing.Size(100, 28);
             this.DrawSizeGraphCancel.TabIndex = 3;
             this.DrawSizeGraphCancel.Text = "Відмінити";
             this.DrawSizeGraphCancel.UseVisualStyleBackColor = true;
@@ -181,44 +193,47 @@
             // 
             // TimeGraph
             // 
-            chartArea2.Name = "ChartArea1";
-            this.TimeGraph.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.TimeGraph.Legends.Add(legend2);
-            this.TimeGraph.Location = new System.Drawing.Point(197, 468);
+            chartArea4.Name = "ChartArea1";
+            this.TimeGraph.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.TimeGraph.Legends.Add(legend4);
+            this.TimeGraph.Location = new System.Drawing.Point(263, 576);
+            this.TimeGraph.Margin = new System.Windows.Forms.Padding(4);
             this.TimeGraph.Name = "TimeGraph";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Genetic";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "Greedy";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "Frequancy";
-            this.TimeGraph.Series.Add(series4);
-            this.TimeGraph.Series.Add(series5);
-            this.TimeGraph.Series.Add(series6);
-            this.TimeGraph.Size = new System.Drawing.Size(692, 376);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Legend = "Legend1";
+            series10.Name = "Genetic";
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Legend = "Legend1";
+            series11.Name = "Greedy";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series12.Legend = "Legend1";
+            series12.Name = "Frequancy";
+            this.TimeGraph.Series.Add(series10);
+            this.TimeGraph.Series.Add(series11);
+            this.TimeGraph.Series.Add(series12);
+            this.TimeGraph.Size = new System.Drawing.Size(923, 463);
             this.TimeGraph.TabIndex = 0;
             this.TimeGraph.Text = "chart1";
             // 
             // TimeLoadingBox
             // 
-            this.TimeLoadingBox.Location = new System.Drawing.Point(197, 468);
+            this.TimeLoadingBox.Location = new System.Drawing.Point(263, 576);
+            this.TimeLoadingBox.Margin = new System.Windows.Forms.Padding(4);
             this.TimeLoadingBox.Name = "TimeLoadingBox";
-            this.TimeLoadingBox.Size = new System.Drawing.Size(692, 376);
+            this.TimeLoadingBox.Size = new System.Drawing.Size(923, 463);
             this.TimeLoadingBox.TabIndex = 4;
             this.TimeLoadingBox.TabStop = false;
             // 
             // DrawTimeGraphButton
             // 
-            this.DrawTimeGraphButton.Location = new System.Drawing.Point(15, 468);
+            this.DrawTimeGraphButton.Location = new System.Drawing.Point(20, 576);
+            this.DrawTimeGraphButton.Margin = new System.Windows.Forms.Padding(4);
             this.DrawTimeGraphButton.Name = "DrawTimeGraphButton";
-            this.DrawTimeGraphButton.Size = new System.Drawing.Size(147, 23);
+            this.DrawTimeGraphButton.Size = new System.Drawing.Size(196, 28);
             this.DrawTimeGraphButton.TabIndex = 3;
             this.DrawTimeGraphButton.Text = "Визначити час роботи алгоритмів";
             this.DrawTimeGraphButton.UseVisualStyleBackColor = true;
@@ -226,9 +241,10 @@
             // 
             // CancelDrawTimeGraphButton
             // 
-            this.CancelDrawTimeGraphButton.Location = new System.Drawing.Point(15, 510);
+            this.CancelDrawTimeGraphButton.Location = new System.Drawing.Point(20, 628);
+            this.CancelDrawTimeGraphButton.Margin = new System.Windows.Forms.Padding(4);
             this.CancelDrawTimeGraphButton.Name = "CancelDrawTimeGraphButton";
-            this.CancelDrawTimeGraphButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelDrawTimeGraphButton.Size = new System.Drawing.Size(100, 28);
             this.CancelDrawTimeGraphButton.TabIndex = 3;
             this.CancelDrawTimeGraphButton.Text = "Відмінити";
             this.CancelDrawTimeGraphButton.UseVisualStyleBackColor = true;
@@ -236,9 +252,11 @@
             // 
             // Graphs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1356, 882);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1006, 559);
             this.Controls.Add(this.TimeLoadingBox);
             this.Controls.Add(this.LoadingBox);
             this.Controls.Add(this.CancelDrawTimeGraphButton);
@@ -256,11 +274,12 @@
             this.Controls.Add(this.TimeGraph);
             this.Controls.Add(this.SizeGraph);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Graphs";
-            this.Text = "Побудова графів";
+            this.Text = "Побудова графіків";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.Graphs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SizeGraph)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoadingBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeGraph)).EndInit();
