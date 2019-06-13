@@ -287,9 +287,10 @@
             // 
             // GraphForm
             // 
-            this.GraphForm.Location = new System.Drawing.Point(606, 272);
+            this.GraphForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.GraphForm.Location = new System.Drawing.Point(605, 268);
             this.GraphForm.Name = "GraphForm";
-            this.GraphForm.Size = new System.Drawing.Size(75, 23);
+            this.GraphForm.Size = new System.Drawing.Size(200, 38);
             this.GraphForm.TabIndex = 13;
             this.GraphForm.Text = "Графіки";
             this.GraphForm.UseVisualStyleBackColor = true;

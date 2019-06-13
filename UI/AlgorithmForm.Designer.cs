@@ -45,6 +45,7 @@
             this.OriginMatrix.AllowUserToResizeColumns = false;
             this.OriginMatrix.AllowUserToResizeRows = false;
             this.OriginMatrix.BackgroundColor = System.Drawing.Color.White;
+            this.OriginMatrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OriginMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OriginMatrix.Location = new System.Drawing.Point(1, 81);
             this.OriginMatrix.Name = "OriginMatrix";
@@ -60,6 +61,7 @@
             this.ResultMatrix.AllowUserToResizeColumns = false;
             this.ResultMatrix.AllowUserToResizeRows = false;
             this.ResultMatrix.BackgroundColor = System.Drawing.Color.White;
+            this.ResultMatrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ResultMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ResultMatrix.Location = new System.Drawing.Point(1, 508);
             this.ResultMatrix.Name = "ResultMatrix";

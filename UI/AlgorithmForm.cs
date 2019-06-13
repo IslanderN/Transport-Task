@@ -46,7 +46,7 @@ namespace UI
             result = algorithmFunc(manufactures, clients);
             stopwatch.Stop();
 
-            this.TimeWork.Text = stopwatch.ElapsedMilliseconds.ToString();
+            this.TimeWork.Text = stopwatch.ElapsedTicks.ToString();
             this.FunctionResult.Text = result.Cost.ToString();
 
             // fill new matrix

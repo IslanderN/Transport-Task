@@ -268,14 +268,14 @@ namespace UI
                 stopwatch.Start();
                 GenerateGenetic(manufactures);
                 stopwatch.Stop();
-                geneticResult.Add(stopwatch.Elapsed.TotalMilliseconds);
+                geneticResult.Add(stopwatch.ElapsedMilliseconds);
 
                 //Greedy
                 stopwatch.Reset();
                 stopwatch.Start();
                 GenerateGreedy(manufactures, clients);
                 stopwatch.Stop();
-                greedyResult.Add(stopwatch.Elapsed.TotalMilliseconds);
+                greedyResult.Add(stopwatch.ElapsedMilliseconds);
 
 
                 //Frequancy
@@ -283,7 +283,7 @@ namespace UI
                 stopwatch.Start();
                 GenerateFrequancy(manufactures);
                 stopwatch.Stop();
-                frequancyResult.Add(stopwatch.Elapsed.TotalMilliseconds);
+                frequancyResult.Add(stopwatch.ElapsedMilliseconds);
             }
             dataPoint.GeneticData.Add(new DoublePoint(clientCount, geneticResult.Average()));
             dataPoint.GreedyData.Add(new DoublePoint(clientCount, greedyResult.Average()));
