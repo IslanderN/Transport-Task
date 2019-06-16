@@ -311,7 +311,7 @@ namespace UI
         {
             manufactures = ProbabilityComputerer.Compute(manufactures);
 
-            var result = FrequancySearch.FindMostFrequance(manufactures);
+            var result = FrequancySearch.FindMostFrequance(manufactures, 100, 30);
             return result.Adaptability;
         }
         #endregion

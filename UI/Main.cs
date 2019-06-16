@@ -43,9 +43,6 @@ namespace UI
         private void GenerateDataGridView(int countManufacturers = CountElementInMatrix, int countClients = CountElementInMatrix)
         {
             this.dataGridView.Columns.Clear();
-            this.GreedyResult.Text = "";
-            this.GeneticResult.Text = "";
-            this.FrequancyResult.Text = "";
 
             if (this.realCountManufacurerInMatrix != countManufacturers)
             {
@@ -205,11 +202,6 @@ namespace UI
             {
                 this.PrepareData();
 
-                List<Route> routes;
-
-                Expensive algorithm = new Expensive();
-                GreedyResult.Text = algorithm.Solver(manufactures, clients, out routes).ToString();
-
                 Form showResult = new AlgorithmForm("Жадібний", manufactures, clients,
                     (manufactures, clients) =>
                     {
@@ -237,8 +229,6 @@ namespace UI
             if (this.Validation())
             {
                 this.PrepareData();
-                var result = GeneticAlgorithm.Executing.Solve(this.manufactures);
-                GeneticResult.Text = result.Adaptability.ToString();
 
                 Form showResult = new AlgorithmForm("Генетичний", manufactures, clients,
                     (manufactures, clients) =>
@@ -263,16 +253,13 @@ namespace UI
             if (this.Validation())
             {
                 this.PrepareData();
-                manufactures = GeneticAlgorithm.ProbabilityComputerer.Compute(manufactures);
-                var result = FrequencySearch.FrequancySearch.FindMostFrequance(this.manufactures);
-                FrequancyResult.Text = result.Adaptability.ToString();
 
 
                 Form showResult = new AlgorithmForm("Частотний", manufactures, clients,
                     (manufactures, clients) =>
                     {
                         manufactures = GeneticAlgorithm.ProbabilityComputerer.Compute(manufactures);
-                        var resultAlgorithm = FrequencySearch.FrequancySearch.FindMostFrequance(manufactures);
+                        var resultAlgorithm = FrequencySearch.FrequancySearch.FindMostFrequance(manufactures, 100, 30);
 
                         var cost = resultAlgorithm.Adaptability;
                         var route = resultAlgorithm.Routes;
@@ -422,6 +409,11 @@ namespace UI
         private void GraphForm_Click(object sender, EventArgs e)
         {
             Form graph = new Graphs();
+            graph.Show();
+        }
+        private void FrequancyGraph_Click(object sender, EventArgs e)
+        {
+            Form graph = new FrequncyForm();
             graph.Show();
         }
     }

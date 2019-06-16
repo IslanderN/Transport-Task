@@ -10,9 +10,12 @@ namespace FrequencySearch
 {
     public class FrequancySearch
     {
-        public static Unit FindMostFrequance(List<Manufacture> manufactures)
+        public static Unit FindMostFrequance(List<Manufacture> manufactures, int maxCount, int partCount)
         {
-            List<Unit> setOfUnits = UnitGenerator.GenerateMany(manufactures, 100);
+            if (maxCount < 0) throw new ArgumentException("MaxCount must be more then 0");
+            if (partCount < 0 || partCount > maxCount) throw new ArgumentException("PartCount must be more then 0 and less then MaxCount");
+
+            List<Unit> setOfUnits = UnitGenerator.GenerateMany(manufactures, maxCount);
             Unit result = new Unit();
             result.Organisated = new Dictionary<Manufacture, int>(setOfUnits[0].Organisated);
 
@@ -25,7 +28,7 @@ namespace FrequencySearch
 
 
             setOfUnits = setOfUnits.OrderBy(u => u.Adaptability).ToList();
-            setOfUnits = setOfUnits.Take(30).ToList();
+            setOfUnits = setOfUnits.Take(partCount).ToList();
 
 
             Dictionary<Manufacture, int> frequancyOfManufactureInSet = new Dictionary<Manufacture, int>(result.Organisated);
